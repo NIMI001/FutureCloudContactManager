@@ -1,0 +1,47 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model ContactVM
+@{
+    ViewData["Title"] = "Contact Manager";
+}
+
+<h3> FutureCloud Contact Manager</h3>
+<p> Save a contact, secure  relationship!</p>
+
+<form method="post" asp-controller="Contact" asp-action="AddContact" >
+    <div class="gridname">
+        <label for="Name">Contact Name</label>
+        <input class="rem" asp-for="ContactName" type="text" placeholder="Enter Contact Name" id="Name"/>
+    </div>
+    <div class="gridname">
+        <label for="Email">Email</label>
+        <input class="rem" asp-for="Email" type="email" placeholder="Enter Contact Email" id="Email" />
+    </div>
+    <div class="gridname">
+        <label for="CountryCode">Select Your Country Code</label>
+        <select asp-for="CountryCode" name="CountryCode" id="CountryCode">
+            <option value="+234">+234</option>
+            <option value="+91">+91</option>
+            <option value="+49">+49</option>
+            <option value="+55">+55</option>
+            <option value="+852">+852</option>
+            <option value="+39">+39</option>
+            <option value="+60">+60</option>
+            <option value="+82">+82</option>
+        </select>
+    </div>
+    <div class ="gridname">
+        <label for="PhoneNumber">Phone Number</label>
+        <input class="rem" asp-for="Phonenumber" type="text" placeholder="Enter Contact Number" id="PhoneNumber" />
+    </div>
+    <div class="gridname">
+        <label for="Address">Address</label>
+        <input class="rem" asp-for="Address" type="text" placeholder="Enter Contact Address" id="Address" />
+    </div>
+    <div>
+        
+     <input type="submit" id="button"/>
+        <input type="reset" id="button" />
+    </div>
+</form>

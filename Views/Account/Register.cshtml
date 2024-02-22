@@ -1,0 +1,68 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model RegisterVM
+<div class="formmaster">
+    <form class="regform" asp-controller="Account" asp-action="Register">
+        <h5> SignUp</h5>
+        
+            <div class="flexname">
+             <div class="gridname">
+            <label for="FirstName">First Name</label>
+                <input type="text" asp-for= "FirstName" class="ref" placeholder="Enter your First Name" id="firstname" />
+                
+            </div>
+            <div class="gridname">
+            <label for="LastName">Last Name</label>
+            <input class="ref" asp-for="LastName" type="text" placeholder="Enter your Last Name" id="lastname" />
+        </div>
+            </div>
+        <div class="gridname">
+            <label for="Email">Email</label>
+            <input type="email" asp-for="Email" class="rem" placeholder="Enter your Email" id="email" />
+
+        </div>
+        <div class="gridname">
+            <label for="Password">Password</label>
+            <input type="password" asp-for="Password" class=" rem" id=" password" />
+
+        </div>
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach (var modelState in ViewData.ModelState.Values)
+                    {
+                        foreach (var error in modelState.Errors)
+                        {
+                            <li>@error.ErrorMessage</li>
+                        }
+                    }
+                </ul>
+            </div>
+        }
+        <div class="gridname">
+            <label for="ConfirmPassword">Confirm Password</label>
+            <input type="password" asp-for="ConfirmPassword" class="rem" id=" confirmpassword" />
+
+        </div>
+       
+        <div class="gridname">
+            <label for="NIN">NIN</label>
+            <input type="text" asp-for="NIN" class="rem" id=" NIN" />
+
+        </div>
+
+        
+            
+        <div class="centercont">
+            <button id="formbtn">Submit</button>
+            <div class="logindirect">
+                <p>Already have an Account? <a href="Login"> Login</a></p>
+            </div>
+        </div>
+
+    </form>
+</div>

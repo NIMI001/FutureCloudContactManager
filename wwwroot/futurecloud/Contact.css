@@ -1,0 +1,175 @@
+﻿body {
+}
+form{
+    background-color:aliceblue;
+    width:450px;
+    height:450px;
+    padding-left: 15px;
+    border-radius:5px;
+    margin-top:10px;
+    
+
+}
+input{
+    margin-top:15px;
+    margin-bottom:10px;
+    border:1px solid grey;
+    border-radius:10px;
+    width:210px;
+    height:50px;
+}
+ 
+
+#PhoneNumber{
+    padding-right:5px;
+}
+#CountryCode {
+    width: 70px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+label {
+    margin-right: 10px;
+    margin-left: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+#button{
+    width:60px;
+    height:30px;
+    align-items:center;
+    margin-right:10px;
+}
+.tablecont{
+    margin-top:50px;
+    width:750px;
+    
+}
+table {
+    background-color: ghostwhite;
+    text-align: center;
+}
+tr{
+    border:2px solid grey;
+}
+th {
+    border: 2px solid grey;
+    margin-right:25px;
+    margin-left:10px;
+}
+td {
+    border: 2px solid grey;
+    margin-right: 25px;
+    margin-left: 10px;
+}
+
+
+
+h5{
+    text-align:center;
+    font-weight:bolder;
+   margin-bottom:20px;
+   margin-top:7px;
+   color:purple;
+}
+.formmaster{
+    display:grid;
+    justify-content:center;
+    
+    width:600px;
+    height:700px;
+
+}
+.ref {
+    width:250px;
+    height:30px;
+}
+.rem{
+    width:400px;
+    height:30px;
+    
+}
+.centercont  {
+    margin-top: 20px;
+    display: grid;
+    grid-column-gap: 30px;
+    justify-content: center;
+}
+.regform {
+    justify-content: center;
+    width: 550px;
+    height: 700px;
+    margin-top: 15px;
+    background-color: grey;
+    border: 2px solid purple;
+    border-radius: 10px;
+    padding-right: 7px;
+    padding-left: 7px;
+    padding-top: 10px;
+}
+.gridname {
+    display: grid;
+    grid-column-gap:10px;
+}
+#formbtn{
+    display:grid;
+    justify-content:center;
+    width:450px;
+    background-color:blueviolet;
+    
+}
+.flexname{
+    display:flex;
+    justify-content:space-between;
+}
+.logindirect{
+    margin-top:30px;
+   margin-left:100px;
+}
+#logform {
+    justify-content: center;
+    width: 470px;
+    height: 400px;
+    margin-top: 15px;
+    background-color: grey;
+    border: 2px solid purple;
+    border-radius: 10px;
+    padding-right: 7px;
+    padding-left: 7px;
+    padding-top: 10px;
+}
+#logbtn {
+    display: grid;
+    justify-content: center;
+    width: 200px;
+    height:30px;
+    background-color: blueviolet;
+    margin-left:100px;
+    margin-top:30px;
+}
+.searchflex{
+    display:flex;
+    justify-content:space-evenly;
+}
+.searchcont {
+    display: block;
+    justify-content: center;
+    width: 750px;
+    height: 700px;
+    
+}
+.form-flex {
+    justify-content: center;
+    height: 80px;
+    width: 690px;
+    background-color: grey;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+#search-btn{
+    width:57px;
+    margin-top:15px;
+    height:30px;
+    background-color:purple;
+    margin-right:20px;
+}

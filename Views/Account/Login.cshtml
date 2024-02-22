@@ -1,0 +1,40 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model LoginVM
+<div class="loginmaster">
+    <form id="logform" asp-controller="Account" asp-action="Login">
+        <h5>Login to your account</h5>
+
+        <div class="gridname">
+            <label for="Email">Email</label>
+            <input asp-for= "Email" class="rem" type="email" placeholder="Enter your email" id="email" />
+        </div>
+        <div class="gridname">
+            <label for="Password">Password</label>
+            <input  asp-for= "Password"  class="rem" type="password" placeholder="Enter your password" id="password" />
+        </div>
+
+        <div>
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach (var modelState in ViewData.ModelState.Values)
+                    {
+                        foreach (var error in modelState.Errors)
+                        {
+                            <li>@error.ErrorMessage</li>
+                        }
+                    }
+                </ul>
+            </div>
+
+        }
+        </div>
+        <input type="submit" id="logbtn" />
+    </form>
+
+</div>

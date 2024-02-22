@@ -1,0 +1,74 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model List<ContactVM>
+@{
+    ViewData["Title"]="Search Contact";
+}
+
+<div class="searchcont">
+    <form class="form-flex" asp-controller="Contact" asp-action="AllContact" method="get">
+       <div class="searchflex">
+            <input class="rem" type="text" name="search" placeholder="Enter search ">
+            <button id="search-btn"type="submit">Search</button>
+            <div>
+                <select name="filter" id="search-btn" >
+                    <option value=""></option>
+                    <option value="+234">+234</option>
+                    <option value="+91">+91</option>
+                    <option value="+82">+82</option>
+
+
+                </select>
+            </div>
+            <button id="search-btn" type="button" onclick="resetSearch()">Reset</button> <!-- Reset button -->
+       </div>
+    </form>
+    <div class="tablecont">
+        <table>
+            <tr>
+                <th>ContactName</th>
+                <th>Email</th>
+                <th>CountryCode</th>
+                <th>PhoneNumber</th>
+                <th>Address</th>
+            </tr>
+
+            @foreach (var contacts in Model)
+            {
+                <tr>
+                    <td>
+                        @contacts.ContactName
+                    </td>
+                    <td>
+                        @contacts.Email
+                    </td>
+                    <td>
+                        @contacts.CountryCode
+                    </td>
+                    <td>
+                        @contacts.Phonenumber
+                    </td>
+                    <td>
+                        @contacts.Address
+                    </td>
+                </tr>
+
+            }
+
+
+
+
+        </table>
+    </div>
+
+    
+   
+</div>
+
+<script>
+    function resetSearch() {
+        document.getElementById('search-btn').reset(); // Reset the form
+       
+    }
+</script>
