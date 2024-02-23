@@ -26,15 +26,19 @@ namespace FutureCloudContactManager.Infrastructure.Repository.Implementation
         }
 
 
-        public IQueryable<Contact> GetAllUserContacts(string userId, string? search)
+        public IQueryable<Contact> GetAllUserContacts(string userId, string? search, string? filter)
         {
            var contacts = _contactContext.Contacts.Where(c=>c.UserId==userId);
-           if(string.IsNullOrEmpty(search) )
+            if (!string.IsNullOrEmpty(filter))
             {
-                return contacts;
+                contacts = contacts.Where(c=>c.CountryCode==filter);
             }
-           return contacts.Where(c=>c.ContactName.Contains(search) || 
+           if(!string.IsNullOrEmpty(search) )
+            {
+                contacts= contacts.Where(c => c.ContactName.Contains(search) ||
            c.Email.Contains(search) || c.Phonenumber.Contains(search));
+            }
+            return contacts;
         }
 
         public Contact GetContactById(string Id)

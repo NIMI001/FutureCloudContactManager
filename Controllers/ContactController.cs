@@ -2,6 +2,7 @@
 using FutureCloudContactManager.Infrastructure.Repository.Implementation;
 using FutureCloudContactManager.Models;
 using FutureCloudContactManager.Models.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FutureCloudContactManager.Controllers
@@ -15,6 +16,7 @@ namespace FutureCloudContactManager.Controllers
             _contactRepository = contactRepository;
         }
         [HttpGet]
+        
         public IActionResult AllContact(string search, string filter)
         {
             
@@ -68,8 +70,14 @@ namespace FutureCloudContactManager.Controllers
         
 
         // GET: ContactController/Edit/5
-        public ActionResult Edit(int id)
+        
+        [HttpPost]
+        public ActionResult Edit(Contact contact)
         {
+            var userId = "5";
+             _contactRepository.UpdateContact(contact);
+            _contactRepository.SaveChangesAsync();
+
             return View();
         }
 

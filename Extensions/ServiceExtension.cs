@@ -2,6 +2,7 @@
 using FutureCloudContactManager.Infrastructure.Persistent;
 using FutureCloudContactManager.Models;
 using FutureCloudContactManager.Service;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -24,6 +25,12 @@ namespace FutureCloudContactManager.Extensions
 
         public static void ConfigureIdentity(this IServiceCollection services)
         {
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
+                {
+                    options.LoginPath = "/Account/Login"; // Specify the login page URL
+                    options.AccessDeniedPath = "/Account/AccessDenied"; // Specify the access denied page URL
+                });
             services.AddIdentity<User, IdentityRole>(o =>
             {
                 o.SignIn.RequireConfirmedEmail = false;

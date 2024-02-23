@@ -2,9 +2,12 @@
 using FutureCloudContactManager.Models.Enums;
 using FutureCloudContactManager.Models.ViewModel;
 using FutureCloudContactManager.Service;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace FutureCloudContactManager.Controllers
 {
@@ -105,7 +108,25 @@ namespace FutureCloudContactManager.Controllers
                     if (signIn.Succeeded)
                     {
 
-                        var token = await _tokenService.CreateToken(user);
+                        //var token = await _tokenService.CreateToken(user);
+                        var claims = new List<Claim>
+                {
+                    
+                    new Claim(ClaimTypes.NameIdentifier, user.Id),
+                    new Claim(ClaimTypes.Email, user.Email)
+                };
+
+                        var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+                        var authProperties = new AuthenticationProperties
+                        {
+                            IsPersistent = true
+                        };
+
+                        await HttpContext.SignInAsync(
+                            CookieAuthenticationDefaults.AuthenticationScheme,
+                            new ClaimsPrincipal(claimsIdentity),
+                            authProperties);
                         return RedirectToAction("AllContact", "Contact");
                     }
                 }

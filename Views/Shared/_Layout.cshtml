@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity;
+@inject UserManager<User> _userManager
+@inject SignInManager<User> _signInManager
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -26,17 +30,8 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
-                        @if (User.Identity.IsAuthenticated)
-                        {
-
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Contact" asp-action="AddNew">AddNew</a>
-
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Contact" asp-action="AllContact">AllContact</a>
-                            </li>
-                        }
+                       
+                        @*if (!User.Identity.IsAuthenticated)*@
                         @if (!User.Identity.IsAuthenticated)
                         {
 
@@ -46,7 +41,26 @@
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
                             </li>
+
+                           
                         }
+                        @if (_signInManager.IsSignedIn(User))
+                        {
+                            <li class="nav-item">
+
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Contact" asp-action="AddNew">AddNew</a>
+
+                            </li>
+                            <li class="nav-item">
+
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Contact" asp-action="AllContact">AllContact</a>
+
+                            </li>
+                        }
+                        
+                           
+                        
+
 
                     </ul>
                 </div>

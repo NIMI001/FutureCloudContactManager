@@ -10,10 +10,9 @@
     <form class="form-flex" asp-controller="Contact" asp-action="AllContact" method="get">
        <div class="searchflex">
             <input class="rem" type="text" name="search" placeholder="Enter search ">
-            <button id="search-btn"type="submit">Search</button>
             <div>
                 <select name="filter" id="search-btn" >
-                    <option value=""></option>
+                    <option value="">filter</option>
                     <option value="+234">+234</option>
                     <option value="+91">+91</option>
                     <option value="+82">+82</option>
@@ -21,7 +20,8 @@
 
                 </select>
             </div>
-            <button id="search-btn" type="button" onclick="resetSearch()">Reset</button> <!-- Reset button -->
+            <button id="search-btn" type="submit">Find</button>
+            
        </div>
     </form>
     <div class="tablecont">
@@ -66,9 +66,3 @@
    
 </div>
 
-<script>
-    function resetSearch() {
-        document.getElementById('search-btn').reset(); // Reset the form
-       
-    }
-</script>
