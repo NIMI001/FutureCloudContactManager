@@ -31,10 +31,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                        
-                        @*if (!User.Identity.IsAuthenticated)*@
-                        @if (!User.Identity.IsAuthenticated)
-                        {
-
+                       
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">SignUp</a>
                             </li>
@@ -43,9 +40,8 @@
                             </li>
 
                            
-                        }
-                        @if (_signInManager.IsSignedIn(User))
-                        {
+                       
+                        
                             <li class="nav-item">
 
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Contact" asp-action="AddNew">AddNew</a>
@@ -56,7 +52,7 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Contact" asp-action="AllContact">AllContact</a>
 
                             </li>
-                        }
+                       
                         
                            
                         
